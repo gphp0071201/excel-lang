@@ -1,0 +1,4 @@
+*.yaml
+src/
+rollup.config.mjs
+tsconfig.json
