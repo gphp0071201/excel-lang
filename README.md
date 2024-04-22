@@ -5,7 +5,7 @@
 # Usage
 
 ```ts
-const excelLang = new ExcelLanguage(path.resolve(__dirname, './lang.xlsx'), {
+const excelLang = new ExcelLang(path.resolve(__dirname, './lang.xlsx'), {
   filename: 'lang.json',
   filepath: path.resolve(__dirname, './'),
 })

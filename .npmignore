@@ -1,4 +1,10 @@
+.npmignore
+.npmrc
+.gitignore
 *.yaml
+babel.config.js
+
 src/
+test/
 rollup.config.mjs
 tsconfig.json
