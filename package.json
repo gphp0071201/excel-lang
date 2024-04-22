@@ -1,11 +1,21 @@
 {
   "name": "excel-lang",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "使用excel配置多语言, 转化为json文件",
-  "main": "dist/index.js",
+  "author": "gphp_007@126.com",
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "start": "ts-node ./src/index.ts",
     "build": "rollup --config",
+    "build:tsc": "tsc",
     "test": "jest"
   },
   "repository": {
@@ -19,8 +29,6 @@
     "excel 配置多语言",
     "多语言"
   ],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/gphp0071201/excel-lang/issues"
   },

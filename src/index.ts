@@ -32,7 +32,7 @@ export class ExcelLang {
    * 解析 excel 数据
    * @returns
    */
-  protected parseExcelFile(): ExcelData {
+  private parseExcelFile(): ExcelData {
     if (!fs.existsSync(this.sourceFilepath)) {
       throw new Error(`Not found file: ${this.sourceFilepath}`)
     }
@@ -86,8 +86,7 @@ export class ExcelLang {
   /**
    * 初始化
    */
-  public init() {
-    console.log(this.parseExcelFile, 'this', this)
+  public init(): void {
     const data = this.parseExcelFile()
     const directroyPath = path.dirname(this.outputFile)
     if (!fs.existsSync(directroyPath)) {
@@ -95,5 +94,25 @@ export class ExcelLang {
     }
     fs.writeFileSync(this.outputFile, JSON.stringify(this.handleData(data)))
     console.log(`File generated successfully, filepath: ${this.outputFile}`)
+  }
+
+  /**
+   * 修改 sheet 名称
+   * @param sheetName
+   */
+  public setSheetName(sheetName: string): void {
+    this.sheetName = sheetName || 'Sheet1'
+  }
+
+  /**
+   * 设置导出文件
+   * @param output
+   */
+  public setOutputFile(output: OutPut): void {
+    this.outputFile = path.join(output.filepath, output.filename)
+  }
+
+  public setSourceFile(sourceFilepath: string) {
+    this.sourceFilepath = sourceFilepath
   }
 }
